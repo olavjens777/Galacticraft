@@ -48,7 +48,7 @@ public class GlassFluidPipeBlockEntity extends PipeBlockEntity implements Connec
     private boolean pull;
 
     public GlassFluidPipeBlockEntity(BlockPos pos, BlockState state) {
-        super(GCBlockEntityTypes.GLASS_FLUID_PIPE, pos, state, FluidConstants.BUCKET / 50); //0.4B/s
+        super(GCBlockEntityTypes.GLASS_FLUID_PIPE, pos, state, FluidConstants.BUCKET / 20); // 1 bucket per second
     }
 
     @Override
