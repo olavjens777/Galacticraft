@@ -44,6 +44,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 public class AdvancedSolarPanelBlockEntity extends AbstractSolarPanelBlockEntity {
+    /**
+     * An advanced solar panel makes twice the energy of a basic one.
+     */
+    private static final int PRODUCTION_FACTOR = 2;
     private static final StorageSpec STORAGE_SPEC = StorageSpec.of(
             MachineItemStorage.spec(
                     ItemResourceSlot.builder(TransferType.PROCESSING)
@@ -55,7 +59,7 @@ public class AdvancedSolarPanelBlockEntity extends AbstractSolarPanelBlockEntity
             MachineEnergyStorage.spec(
                     Galacticraft.CONFIG.machineEnergyStorageSize(),
                     0,
-                    Galacticraft.CONFIG.solarPanelEnergyProductionRate() * 2
+                    Galacticraft.CONFIG.solarPanelEnergyProductionRate() * PRODUCTION_FACTOR * 2
             )
     );
 
@@ -78,9 +82,9 @@ public class AdvancedSolarPanelBlockEntity extends AbstractSolarPanelBlockEntity
         double cos = Math.cos(this.level.getSunAngle(1.0f));
         if (cos <= 0) return 0;
         if (cos <= 0.26761643317033024) {
-            return (long) (Galacticraft.CONFIG.solarPanelEnergyProductionRate() * (cos / 0.26761643317033024) * multiplier);
+            return (long) (PRODUCTION_FACTOR * Galacticraft.CONFIG.solarPanelEnergyProductionRate() * (cos / 0.26761643317033024) * multiplier);
         }
-        return (long) (Galacticraft.CONFIG.solarPanelEnergyProductionRate() * multiplier);
+        return (long) (PRODUCTION_FACTOR * Galacticraft.CONFIG.solarPanelEnergyProductionRate() * multiplier);
     }
 
     @Override

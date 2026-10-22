@@ -61,12 +61,12 @@ public class ConfigImpl implements Config {
     private transient final Gson gson;
     private transient final File file;
     private boolean debugLog = false;
-    private long wireMaxTransferPerTick = 128;
-    private long heavyWireMaxTransferPerTick = 256;
+    private long wireMaxTransferPerTick = 2500;
+    private long heavyWireMaxTransferPerTick = 5000;
     private long machineEnergyStorageSize = 30_000;
-    private long energyStorageModuleStorageSize = 300_000;
-    private long coalGeneratorEnergyProductionRate = 120; // /t
-    private long solarPanelEnergyProductionRate = 44;
+    private long energyStorageModuleStorageSize = 250_000;
+    private long coalGeneratorEnergyProductionRate = 200; // /t
+    private long solarPanelEnergyProductionRate = 50;
     private long circuitFabricatorEnergyConsumptionRate = Constant.Energy.T1_MACHINE_ENERGY_USAGE;
     private long electricCompressorEnergyConsumptionRate = Constant.Energy.T2_MACHINE_ENERGY_USAGE;
     private long electricFurnaceEnergyConsumptionRate = Constant.Energy.T2_MACHINE_ENERGY_USAGE;

@@ -49,6 +49,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class EnergyStorageModuleBlockEntity extends ResourceStorageBlockEntity {
+    /**
+     * The most energy the module takes in and pushes out per tick: what a heavy wire carries.
+     */
+    public static final long MAX_TRANSFER = 5000;
     public static final int CHARGE_SELF_SLOT = 0;
     public static final int CHARGE_ITEM_SLOT = 1;
 
@@ -67,7 +71,7 @@ public class EnergyStorageModuleBlockEntity extends ResourceStorageBlockEntity {
             ),
             MachineEnergyStorage.spec(
                     Galacticraft.CONFIG.energyStorageModuleStorageSize(),
-                    Galacticraft.CONFIG.energyStorageModuleStorageSize() / 200
+                    MAX_TRANSFER
             )
     );
 
